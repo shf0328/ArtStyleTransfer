@@ -1,0 +1,25 @@
+1. Open the jupyter notebook, open the "ArtTransfer_1st.ipynb"
+
+2. Execute the commands in the second cell first, otherwise plots will NOT be shown
+   %matplotlib inline
+
+
+3. the run() is a wrap function to build the model and generate new images using scipy optimization.
+   the runSGD() is the same except that it uses SGD optimization.
+
+4. To provide customized parameters, use 
+ run(cl_weight=0.1,con_layers=['conv1_1'], sty_layers=['conv1_1','conv2_1','conv3_1','conv4_1','conv5_1'],
+        photopath='./data/Tuebingen_Neckarfront.jpg', 
+        artpath='./data/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg')
+
+where cl_weight is the weight of the content loss function, con_layers is the layer you want to use as content 
+representation,sty_layers is the layer you want to use as style representation
+photopath is the path of the photograph
+artpath is the path of the artwork
+
+The weight of the style loss function is default to 2e-6. User can customize the ratio of the
+weights between the content and the style by providing the cl_weight with different values.
+
+The photograph files and artwork files must be in the "./data/" subdirectory.
+
+Thank you TAs and Professor!
